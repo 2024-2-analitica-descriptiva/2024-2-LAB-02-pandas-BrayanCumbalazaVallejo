@@ -23,3 +23,11 @@ def pregunta_09():
     39  39  E   5  1998-01-26  1998
 
     """
+    import pandas as pd
+    df = pd.read_csv("files/input/tbl0.tsv", delimiter="\t")
+    año_mes_dia = df['c3'].str.split("-", expand=True)
+    año_mes_dia.columns = ['año', 'mes', 'día']
+    df['year'] = año_mes_dia['año']
+    return df
+
+

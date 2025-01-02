@@ -21,3 +21,11 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
+    import pandas as pd
+    input_file = "files/input/tbl0.tsv"
+    df = pd.read_csv(input_file, delimiter="\t")
+    conteo = df['c1'].value_counts(sort=False).sort_index()
+    return conteo
+
+if __name__ == "__main__":
+    print(pregunta_03())

@@ -15,3 +15,10 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
+    import pandas as pd
+    input_file = "files/input/tbl1.tsv"
+    df = pd.read_csv(input_file, delimiter="\t")
+    contar = df['c4'].str.upper().unique()
+    lista = sorted(list(contar))
+    return lista
+

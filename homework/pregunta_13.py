@@ -20,3 +20,12 @@ def pregunta_13():
     E    275
     Name: c5b, dtype: int64
     """
+    import pandas as pd
+    df0 = pd.read_csv("files/input/tbl0.tsv", delimiter="\t")
+    df2 = pd.read_csv("files/input/tbl2.tsv", delimiter="\t")
+    resultado = df2[['c0', 'c5b']]
+    resultado = pd.merge(resultado, df0[['c0', 'c1']], on='c0', how='inner')
+    contar = resultado.groupby('c1')['c5b'].sum()
+    return contar
+if __name__ == "__main__":
+    print(pregunta_13())
